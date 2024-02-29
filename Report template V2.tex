@@ -1,0 +1,417 @@
+%The following text can be used as a template for composing a laboratory report. This template is the intellectual property of the Department of Physics and Electronics at the University of Kelaniya in Sri Lanka.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\documentclass[11pt]{report}	%The document will be formatted with a font size of 11pt, and you have the flexibility to customize any other settings according to your specific requirements.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%Next, we will include additional packages to further refine our document's formatting. These packages serve as valuable tools for making specific adjustments and enhancing the overall appearance of our document.
+		
+\usepackage{graphicx} %The package 'graphicx' allows for the inclusion and manipulation of graphics within a LaTeX document.
+
+\usepackage{xcolor} %The 'xcolor' package enables the utilization and manipulation of colors in a LaTeX document.
+
+\usepackage{amsmath} % The 'amsmath' package provides enhanced mathematical functionality and typesetting capabilities within a LaTeX document.
+
+\usepackage{tabularx}  %The 'tabularx' package is designed to create tables with flexible width columns in LaTeX. It allows for better control over column widths and automatic line-breaking within cells.
+
+\usepackage{multirow} %The 'multirow' package in LaTeX allows for the creation of multi-row cells in tables. It enables the merging of rows in a table, allowing content to span across multiple rows.
+
+\usepackage[a4paper, left=25mm,  right =15mm, top=25mm, bottom=25mm]{geometry} %The 'geometry' package in LaTeX provides extensive control over the page layout and dimensions of a document. It allows for adjusting margins, paper size, orientation, and other parameters to customize the document's overall appearance and formatting.
+
+\usepackage{parskip} %The 'parskip' package in LaTeX modifies the paragraph spacing and indentation within the document. It provides options to change the distance between paragraphs, such as adding vertical space between paragraphs or removing paragraph indentation.
+
+\usepackage{fancyhdr} %The 'fancyhdr' package in LaTeX enables the customization of headers and footers in a document. It provides a flexible way to define and modify the layout, content, and formatting of headers and footers on each page. This package is commonly used to create professional-looking headers and footers with customized information, such as page numbers, section titles, or logos.
+
+
+\usepackage[backend=bibtex, style=ieee]{biblatex} %This is used for citation, which we will describe at the end
+\addbibresource{references.bib} %reference file name
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%Now, we will define the headers, footers, and other parameters that will remain consistent throughout the document. However, it is also possible to customize the styles for each page as desired.
+
+\graphicspath{ {./Figures/} }  %Please provide the file path of all the images to the LaTeX compiler for proper inclusion and display in the document.
+
+\pagestyle{fancy} %Setting the page style to fancy allows us to use fancyhdr commands bellow
+
+
+%Now let's set the headers and footers
+\rhead{Research Project} %Define the contains of right header
+\lhead{ELEC 33542} %Define the contains of left header
+%\rfoot{Page \thepage} %indicate the page number with "page" + number at the right footer
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{document}	%starting the document.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%Title page
+
+
+\begin{titlepage}	%A more organized approach is to use the titlepage environment to create the title page. Typically, this involves creating a separate .tex file for the title page and then including it in the main document. However, as beginners, let's try adding the title page directly within the same document.
+
+
+\centering 	%The \centering command is used in LaTeX to horizontally center-align the content that follows it. 
+
+\vspace*{\fill} 	%By using \vspace*{\fill}, you can create vertical space that dynamically adjusts to occupy the remaining empty space on a page, pushing content towards the top or bottom accordingly.								
+
+%let's add a figure
+\begin{figure}[h] %h means float the picture, you could place it in a specify position using t-for top of the page, b- for bottom etc.
+
+\centering  %this is used to position the figure in the center of the paper
+
+\includegraphics[width=0.2\textwidth]{KLN logo} %Here type the name of the figure in jpeg or png ****The figure should be in the same folder*** 0.2\textwidth means how big is it compared to the text width, here it is just 20% of the text width
+
+
+\end{figure}
+
+\large\textbf{ELEC 33542}\\ 	%Add a course module here. \large defines the font size
+
+\vspace{0.5cm} %This command inserts vertical space of the specified length between the current line and the next line. Adjust the value inside the curly braces to set the desired spacing between the lines.
+
+\LARGE\textbf{Research Project} \\	%Enter the experiment number \LARGE defines the font size
+
+\vspace{0.5cm} 
+
+\large\textbf{Academic Year 2021/2022} 	
+
+%\rule{\textwidth}{1px} %Adding another line with the thickness of 1px you can change this to suit your need.
+
+
+\vspace{0.5 cm}	 %leave 0.5cm space afterward
+					
+\huge\textbf{Energy Harvesting from Human-Body Movements for Powering Ultra-Low Power Appliances} 	%Type the experment name \huge defines the font size
+
+\vspace{0.5 cm}	%leave 0.5cm space afterward
+
+%\rule{\textwidth}{1px} %Adding another line with the thickness of 1px you can change this to suit your need.
+
+\vspace{1 cm}
+\large{Group 19} %include your group number here
+\vspace{1 cm}	%Before proceeding with the next details, let's insert some spacing to allow for customization according to your specific requirements. Feel free to adjust the spacing to suit your needs.
+
+
+	%starts aligning text to left
+\large{
+	PX/2019/019 - T.G.L. GUNARATHNA\\[0.15cm] %Name, Student no,Partner's no, and date of experiment. "\\" means go to the next line.[0.15cm] - defines the spacing between lines
+	PX/2019/056 - S.E.R.T.M.M.I. THENNAKOON\\[0.15cm]
+	PX/2019/061 - H.S. GUNASEKARA\\[0.15cm]
+	PX/2019/064 - U.S.D.B.M. RUPASINGHA\\[0.15cm]
+}
+
+\vspace{3 cm}
+
+\large{March 2024} 
+
+\vspace*{\fill}	%By using \vspace*{\fill}, you can create vertical space that dynamically adjusts to occupy the remaining empty space on a page, pushing content towards the top or bottom accordingly.	
+
+\end{titlepage}	%End of the title page. 
+
+\pagenumbering{roman}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Now let us start writing our repor
+
+
+
+\chapter*{Abstract} %To remove the numbering from a section in LaTeX, you can use an asterisk (*) after the sectioning command. This will create an unnumbered section. For example, instead of using \section{Introduction}, you would use \section*{Introduction}.
+
+Energy harvesting from human movement stands out as a key solution for powering ultra-low-power applications. This research focuses on developing a mechanism to harvest energy from human foot movement using piezoelectric technology. Ensuring voltage compatibility between the harvesting element and the load is crucial in this energy harvesting system. To enhance power extraction, Parallel - Synchronous Switching Harvesting on the Inductor (P-SSHI) interface is proposed. The main challenge lies in achieving a self-powered (SP) solution to increase efficiency and enable operation at low frequencies and irregular vibrations. This work proposes a self-powered P-SSHI energy management circuit and proposes an innovative MOSFET-based rectifier circuit that replaces the typical diode for AC to DC conversion. The harvested energy is then stored using a Li-ion battery charging circuit with auto-cutoff on a full charge, including an indicator circuit. The entire system is implemented on a shoe insole. To showcase the application, a safety wearable jacket for night workouts is designed, featuring RGB color-controlled lights, fitness tracking, and emergency notification capabilities. The project's outcomes are expected to enhance the well-being of those engaged in night workouts, showcasing innovative energy harvesting techniques and contributing to the advancement of wearable technology, renewable energy, and personal safety.	%type abstract word limit 200-400 words
+
+
+\textbf{Keywords:} energy harvesting; piezoelectric; safety wearable; synchronized switching; sustainable energy;
+
+
+\newpage
+\addcontentsline{toc}{chapter}{Ackonwledgement}
+\chapter*{Ackonwledgement}
+Heartfelt thanks to the distinguished supervisors Prof. Aruna Ranaweera, Dr. Chathuranga Kumarage, Dr. Jehan Seneviratne, Dr. Kasun Piyumal, and Dr. K.D. Binuka H. Gunawardana of the University of Kelaniya, who provided knowledge for the successful completion of this research.
+Also, S. V. Senanayake and H.B. Leanage, the demonstrators of University of Kelaniya, who made a significant contribution by devoting themselves to the progress of the research and pointing out the flaws. Thank you Mr. S. V. Senanayake and Mrs. H.B. Leanage for their support and dedication.
+Also, all the non-academic staff of the University of Kelaniya and especially the Department of Physics and Electronics are appreciated for providing the necessary resources, facilities, and a fertile study environment for facilitating the project work and making the research successful.
+A special thanks to all lecturers and coordinators at the University for their educational guidance, and encouragement, and for creating a nurturing learning atmosphere. 
+Lastly, heartfelt gratitude expresses to university friends and families. Their constant encouragement, patience, and understanding have been a source of motivation and strength throughout the academic journey. 
+
+
+
+
+\clearpage
+\newpage %Begins a new page
+
+\tableofcontents %Insert Table of Contents
+
+\clearpage
+
+\newpage %Begins a new page
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+\clearpage
+
+
+\newpage
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+
+\clearpage
+
+
+\newpage
+\addcontentsline{toc}{chapter}{Abbreviations}
+\chapter*{Abbreviations}
+
+AC – Altering Current\\[2pt]
+DB – Database\\[2pt]
+DC – Direct Current\\[2pt]
+FBR – Full Bridge Rectifier\\[2pt]
+IPC – Institute of Printed Circuits\\[2pt]
+JSON - JavaScript Object Notation\\[2pt]
+MOSFET – Metal-Oxide-Semiconductor Field-Effect Transistor\\[2pt]
+PCB – Printed Circuit Board\\[2pt]
+PCD – Piezoelectric Ceramic Diaphragm\\[2pt]
+PEH – Piezoelectric Energy Harvester\\[2pt]
+PET - Piezoelectric Transducers\\[2pt]
+P-SSHI – Parallel-Synchronous Switching Harvesting on Inductor\\[2pt]
+RGB – Red, Green, Blue\\[2pt]
+RTC – Real Time Clock\\[2pt]
+SCEC – Synchronous Charge Extraction Circuit\\[2pt]
+SD – Standard deviation\\[2pt]
+SP – Self Powered\\[2pt]
+SSHI – Synchronous Switching Harvesting on Inductor\\[2pt]
+
+
+\clearpage
+
+
+\newpage
+
+\pagenumbering{arabic}
+\chapter{Introduction} %Begins a new section
+
+Numerous electronic wearable devices have been created in recent years, such as smartwatches and fitness trackers, all equipped with batteries requiring frequent charging. Therefore, it would be a better solution for creating self-powered devices. In order to create self-powered devices human body movement can be a prominent method this research focuses on creating an energy harvesting system. That harvests the energy from human foot movement.
+Also, this project focuses the creating a safety wearable jacket including fitness tracking RGB light controlling and emergency notification capabilities for night workouts.
+
+
+\section{Research Background}
+
+Energy harvesting systems for human body motion, often referred to as "human-powered energy harvesting," are designed to capture and convert the kinetic or potential energy generated by a person's movements into electrical energy. Electromagnetic, electrostatic, Thermoelectric, and piezoelectric transductions are the fundamental methods that can be employed to transfer the ambient vibration energy to electrical energy.  
+This study uses piezoelectric technology to capture energy. Here, it is aimed to utilize the compressive force generated on the ground according to the movement of human feet when walking or running. When walking, the metatarsus area, which is mainly connected to the toes, and the heel are firmly connected to the ground, so the bottom feels the positive reaction force between the ground and the bottom. Therefore, it has been decided that it is more appropriate to place piezoelectric devices in those areas. 
+These systems can be valuable in various applications, including wearable devices, safety jackets with RGB color control and fitness tracking features through the mobile app, where a continuous or intermittent power source is required.
+
+
+\section{Objectives}
+\begin{itemize}
+  \item Developing an efficient energy harvesting module integrated into the shoe insole.
+  \item Enhance the safety and visibility of night workouts by developing an innovative safety jacket.
+  \item Create a user-friendly mobile application to complement the safety jacket, offering authentication, user management, and health monitoring features.
+  \item Implement an emergency system in the mobile application to ensure user safety through SOS signals and emergency calls to family members.
+  \item Enable real-time data synchronization with advanced data analysis and backup capabilities.
+\end{itemize}
+
+
+\section{Problem Statement }
+
+Growing reliance on mobile electronic devices gradually increased due to increasing human needs. Therefore, the need to charge those mobile electronic devices also emerged. As a solution, there are various renewable energy sources and one way is to use the movements of the human body.
+This project converts the energy generated by the feet into electricity and directs the converted energy to a productive application. However, the challenge remains to efficiently capture this energy. The reason for this is that the energy generated by piezoelectric devices used to convert kinetic energy into electricity is very low. So integrating the energy thus generated with the devices is a problem.
+Therefore, this can be considered as an environment-friendly energy solution project that is currently undergoing various experiments.
+\section{Scope and Limitations}
+\subsection{Scope:}
+Specifically focusing on generating electrical energy by converting the kinetic energy that is produced by the foot sole during walking and running. The primary method for power generation will be piezoelectric technology. This harvested energy will be stored in a  li-ion battery. 
+That stored energy will be used to create a wearable safety light jacket to improve the visibility and safety of people jogging at night, including a step counter. The electrical energy transmission from the energy harvesting device embedded in the shoe's insole to the application is done via plug and unplug the battery. This shoe should not be exposed to high-impact activities like jumping and bending. And also, the system should not be exposed to water.
+The project seeks to demonstrate the practical application of energy harvesting in personal safety devices, promote sustainability in wearable technology, and meet the increasing demand for self-powered electronics.
+\subsection{Limitations:}
+Technical constraints such as resource and time constraints can limit the implementation of a project. Integrating advanced technologies such as energy harvesting and wearable devices may be challenging and may require further research. Safety features such as emergency signals and health monitoring may not be effective due to external factors such as poor network connectivity and user behavior. The safety jacket and shoes are not suitable for high jumps and fast running activities, they are not waterproof, and are not recommended for children under 5 years of age.
+
+\newpage 
+
+
+\chapter{Literature Review}
+This chapter evaluates the existing literature on piezoelectric energy harvesting and wearable technology to improve safety during nighttime exercise. This project identifies gaps in the wider scientific community that can contribute significantly to and reviews research. This review sets the stage for our innovative approach to energy harvesting from human body movement and its applications.
+
+% Have a detailed literature review.\\
+% \\
+% \textbf{Citations should be in IEEE format.}-----include reference-----
+
+% Now, let's look a little into citing papers. for example, if you want to discuss the conductivity of graphene \cite{nano11102575} or the enhancement of electron cooling in graphene \cite{yu2023electron}, you can simply use the above-mentioned method.
+
+% You just have to export the citation in BibTeX format and copy it to your reference.bib file (list of references file saved as .bib). Then, you can call the reference using the keyword you used. For example, if I want to talk about electronic devices, I can use this book as a reference \cite{paul2007electronics}.
+\section{Existing Solutions}
+\subsection{Force Analysis and Energy Harvesting for Innovative Multi-functional Shoes.}
+This review focuses on the topic of energy harvesting from human locomotion, specifically using multi-functional shoes. The article compares two methods of energy harvesting, namely piezoelectric and electromagnetic, which are commonly used in shoes. The review analyzes assorted designs and their efficiencies and discusses the challenges and advancements in harvesting energy through footwear. Additionally, the article highlights different approaches such as embedded piezoelectric materials, electromagnetic in-shoe harvesters, and other innovative mechanisms for improving energy conversion and comfort. This comprehensive review provides a basis for understanding current technologies and their limitations in the context of wearable energy harvesting. energy harvesting from human locomotion, particularly through innovative multi-functional shoes. It compares piezoelectric and electromagnetic methods used in shoes for energy harvesting, analyzing assorted designs and their efficiencies. The review discusses the challenges and advancements in harvesting energy through footwear, highlighting different approaches such as embedded piezoelectric materials, electromagnetic in-shoe harvesters, and other innovative mechanisms for improving energy conversion and comfort. This comprehensive review serves as a basis for understanding current technologies and their limitations in the context of wearable energy harvesting
+
+\subsection{Reflective Vim Jacket.}
+The Reflective Vim Jacket from Oiselle is a lightweight, windproof, and water-resistant shell designed specifically for running and walking outdoors. It features reflective mesh for safety, adjustable hem, and hood, packability into its own pocket, and hand pockets with zipper closure. The fabric is polyamide, known for breathability and water repellency. For a literature review, you would examine the technological and material advancements in athletic wear, focusing on safety, comfort, and functionality, comparing them to the features of the Vim Jacket.
+
+\section{Review on Existing Methodologies }
+
+\subsection{Circuit Design and Power Loss Analysis of a Synchronous Switching Charger with Integrated MOSFETs for Li-Ion Batteries.}
+Over the past few years, the demand for small devices like cell phones and portable gadgets has surged, driven by integrated features and compact designs. However, the power source, especially batteries, has struggled to keep up with technological advancements. The lithium-ion (Li-Ion) battery is popular due to its high energy density. While improving power efficiency with advanced circuit designs has been a focus, battery charging is now a crucial area for maximizing capacity and lifespan.
+Traditional linear chargers were suitable for low-capacity batteries due to their cost-effectiveness and small size. However, as portable devices demand more power, linear chargers fall short due tothe high power dissipation. This paper introduces an MHz synchronous switching battery charger designed to efficiently charge batteries and extend their lifespan. The focus is on addressing the limitations of linear chargers, providing detailed design considerations, and analyzing power losses to estimate the temperature of the integrated circuit
+
+\subsection{Self-Powered Synchronized Switching Interface Circuit for Piezoelectric Footstep Energy Harvesting}
+Piezoelectric Vibration Converters are becoming more important for powering small sensors and wearable electronic devices. To make sure the generated voltage matches the device's needs, energy management interfaces are crucial. One promising solution is the Parallel Synchronized Switch Harvesting on Inductor (P-SSHI), a resonant interface to enhance power extraction.
+Addressing the challenges of self-powered solutions and increased efficiency for low-power modes, a new circuit called Self-Powered P-SSHI (SP P-SSHI) has been proposed. This circuit efficiently harvests energy from piezoelectric converters, especially from low-frequency and irregular vibrations like footsteps. A practical example involves a shoe insole with six integrated piezoelectric sensors to validate the circuit's performance.
+Under a vibration frequency of 1 Hz (moderate walking speed), the SP P-SSHI achieved a maximum efficiency of 83.02\% and a power output of 3.6 mW for the designed insole with specific resistive loads and storage capacitors. The circuit demonstrated quick charging times for capacitors and even a manganese dioxide coin cell lithium battery, showcasing its ability to provide autonomous power for wearable wireless sensors
+
+\subsection{A Self-Powered Hybrid SSHI Circuit with a Wide Operation Range for Piezoelectric Energy Harvesting}
+This paper introduces an innovative piezoelectric (PE) energy harvesting circuit designed for applications like the Internet of Things (IoT) and implant devices. Unlike traditional circuits, this design integrates a Synchronized Switch Harvesting on Inductor (SSHI) circuit with a diode bridge rectifier, addressing challenges in efficient energy extraction from PE transducers. The circuit utilizes two resonant loops, allowing it to overcome voltage limitations and achieve improved power harvesting from a PE cantilever. Notably, it is self-powered and can initiate without an external battery. In experiments, the proposed circuit outperformed a full-bridge circuit, harvesting 2.9 times more power and expanding the Voltage Range of Interest (VRI) by 4.4 times. The achieved power conversion efficiency is an impressive 83.2\%. This innovative circuit offers significant advancements in PE energy harvesting for various small-scale applications.
+
+\subsection{A comparison of power harvesting techniques and related energy storage issues}
+This research delves into the field of power harvesting, also known as energy harvesting or scavenging, where special materials called transducers are utilized to extract useful electrical energy from various ambient sources. While the terms "power harvesting" and "energy harvesting" are often used interchangeably, the study aims to typify the power source characteristics of different transducer devices and compare their relative energy densities. The exploration extends to power storage techniques, focusing on secondary batteries, supercapacitors, and recent advancements in supercapacitor technology. The research also delves into piezoelectric energy harvesting, particularly its effectiveness for battery charging. Original experiments involve developing and characterizing a cantilever piezoelectric bimorph model and exploring temperature gradient thermoelectric generators (TEGs). The study concludes by comparing various power harvesting techniques and proposing a hybrid approach that combines piezoelectric and electromagnetic energy harvesting to maximize energy extraction from diverse ambient sources. The goal is to enhance understanding and propose innovative methods for creating hybrid power harvesting devices that tap into multiple energy domains for optimal energy harvest.
+
+
+\newpage
+\chapter{Theory and Methodology} %start section Theory and Methodology
+
+% Theory and diagram details are typed in here. Most of the time, this is a section where you would want to include a figure. Now to include a figure, we have used the graphicx package. \textcolor{red}{\textbf{It is important to note that the figures included should be in the same folder for \LaTeX to find them automatically}}. You could always give the path in the \LaTeX code if the figure is located somewhere else in Figure \ref{Fig1}. Figure DPI should be $\geq 800$. %You can change the color of the text
+
+This Chapter delves into the core theories and the comprehensive methodology that drives this project forward. It outlines the innovative approach to energy harvesting through piezoelectric technology, aiming to convert kinetic energy from human movement into electrical energy.
+
+\section{Theory }
+
+\subsection{Piezoelectric Materials: Understanding the Basics of Energy Generation}
+
+%let's add a figure
+\begin{figure}[h] %h means float the picture, you could place it in a specific position using t-for top of the page, b- for bottom etc.
+
+\centering  % This is used to position the figure in the center of the paper
+
+\includegraphics[width=0.3\textwidth]{Latex} %Here, type the name of the figure in jpeg or png ****The figure should be in the folder referred in the beginning of the document*** 0.3\textwidth means how big it is compared to the text width, here it is just 20% of the text width
+
+\caption{Image of \LaTeX.} %figure caption automatically number the figure in the order they are included
+
+\label{Fig1}
+
+\end{figure}
+
+
+When writing the report, you may want to use some math symbols. Math symbols are typed in between two '\$' symbols. for ex: $E = m c^2$ and $\psi = e^{-i (kx- \omega t)}$.
+
+
+
+\newpage %You can start a new page
+
+
+\chapter{Results and Discussion}
+
+\section{Subsection 1}
+
+Include data, observations and plots in this section.
+
+You might need to type equations in this section, too, as demonstrated below. We could use the same previous method to write and number the equations. You could write the equation and label it and refer to the equation by the label, so \LaTeX will automatically fill out the equation number. For example, the equation \ref{eu_eqn} is known as the Euler equation. Here, the equation is referred to using the label ``eu\_eqn".
+
+\begin{equation} \label{ohm law}
+V=I \times R
+\end{equation}
+
+\begin{equation} \label{eu_eqn}
+e^{\pi i} + 1 = 0
+\end{equation}
+
+The equation in \ref{ohm law} is known as Ohm's law.
+
+Now let's try some more for a flow through a semi-circular tube,
+
+\begin{equation} \label{eq3}
+\begin{split}
+P_1 V_1 & = P_2 V_2 \\
+& = P_2 \times \frac{\pi {r_2}^2}{2} v_2
+\end{split}
+\end{equation}
+
+Additionally, we might have to add tables to tabulate the results, one of the ways is to package \textbf{\textit{tabularx}}.
+
+\begin{table}[h]
+\centering
+\caption{Sample data table.}
+\begin{tabular}{ |c|c|c|  }
+ \hline
+ \multicolumn{3}{|c|}{Data from the Lab} \\
+ \hline
+Data point & Current (mA)  & Voltage (V) \\
+ \hline
+1 & 10 & 1.5\\
+2 & 20 & 3.0\\
+3 & 30 & 4.5\\
+ \hline
+\end{tabular}
+
+\end{table}
+
+You could include the graphs as figures in the document. 
+
+\section{Subsection 2} 
+
+You can do much more from LaTex. You would find that \LaTeX is used as a standard template for many occupations, especially in academic writing such as a dissertation, thesis, articles, etc. STEM field uses \LaTeX formatting extensively. So get an idea about it. If you have any questions, ask your demonstrators to explain.
+
+\subsection{Subsection 3} 
+
+If you need more sections, you can add them. Feel free to edit it as you like.
+
+
+\newpage
+\chapter{Future Work}
+
+Type how you can enhance your project for the optimum outcome.
+
+
+
+
+\newpage
+\chapter{Conclusions} 
+
+It would be convenient to itemize some factors to imply your idea shortly and sweetly.
+
+Lists are easy to create:
+\begin{itemize}
+  \item Here is an example
+  \item Individual entries are indicated with a black dot, a so-called bullet.
+  \item The text in the entries may be of any length.
+\end{itemize}
+
+Numbered (ordered) lists are easy to create:
+\begin{enumerate}
+  \item Items are numbered automatically.
+  \item The numbers start at 1 with each use of the \texttt{enumerate} environment.
+  \item Another entry in the list
+\end{enumerate}
+
+
+
+\newpage
+
+\addcontentsline{toc}{chapter}{References}
+\printbibliography %Prints bibliography
+\clearpage
+
+\newpage
+\addcontentsline{toc}{chapter}{Appendices}
+\chapter*{Appendices}
+\addcontentsline{toc}{section}{Appedix I}
+\section*{Appedix I}
+\clearpage
+
+\newpage
+\addcontentsline{toc}{section}{Appedix II}
+\section*{Appedix II}
+\clearpage
+
+\end{document}	%End of the document. 
+
+%pdfLaTeX ---->Biber---->pdfLaTeX
